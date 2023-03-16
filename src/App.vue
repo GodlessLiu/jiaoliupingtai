@@ -6,4 +6,7 @@
 
 </script>
 
-<style lang="less" scoped></style>
+<style lang="scss">
+@import "./styles/reset.scss";
+@import './styles/hideui.scss'
+</style>
