@@ -1,7 +1,7 @@
 <template>
     <div class="Z_TabBar">
         <div class="Z_TabBar_logo">
-            laf
+            <a href="">Lhistory <span>中文网</SPan></a>
         </div>
         <n-tabs type="line" class="Z_TabBar_Tabs" tab-style="padding:10px 10px;" justify-content="end" animated
             :on-update:value="tabChange">
@@ -34,7 +34,6 @@ const tabChange = (e: string) => {
 const UseRoute = useRoute()
 
 const GetDefaultValue = () => {
-
     const nowTab = TabBarConfig.filter((i) => i.path === UseRoute.matched[0].path)
     return nowTab[0].name
 }
@@ -51,6 +50,15 @@ GetDefaultValue()
 
     &_logo {
         line-height: 40px;
+        min-width: 200px;
+
+        a {
+            color: #ccc;
+
+            span {
+                font-weight: 700;
+            }
+        }
     }
 }
 </style>

@@ -9,10 +9,14 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    NAffix: typeof import('naive-ui')['NAffix']
     NCard: typeof import('naive-ui')['NCard']
+    NConfigProvider: typeof import('naive-ui')['NConfigProvider']
+    NLayout: typeof import('naive-ui')['NLayout']
     NTab: typeof import('naive-ui')['NTab']
     NTabPane: typeof import('naive-ui')['NTabPane']
     NTabs: typeof import('naive-ui')['NTabs']
+    NTag: typeof import('naive-ui')['NTag']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     TabBar: typeof import('./src/components/TabBar.vue')['default']
