@@ -3,8 +3,8 @@
         <div class="Z_TabBar_logo">
             <a href="">Lhistory <span>中文网</SPan></a>
         </div>
-        <n-tabs type="line" class="Z_TabBar_Tabs" tab-style="padding:10px 10px;" justify-content="end" animated
-            :on-update:value="tabChange">
+        <n-tabs type="line" class="Z_TabBar_Tabs" :default-value="nowTab" tab-style="padding:10px 10px;"
+            justify-content="end" animated :on-update:value="tabChange">
             <n-tab v-for="tab in TabBarConfig" :key="tab.name" :name="tab.path">
                 {{ tab.text }}
             </n-tab>
@@ -13,31 +13,21 @@
 </template>
 
 <script lang="ts" setup>
-import { useRoute } from 'vue-router'
-const TabBarConfig = [{
-    name: "1",
-    path: "/",
-    text: "首页"
-}, {
-    name: "2",
-    path: "/1",
-    text: "星球"
-}, {
-    name: "3",
-    path: "/2",
-    text: "动态"
-}]
+import { useRoute, useRouter } from 'vue-router'
+import { TabBarConfig } from '../config'
 
-const tabChange = (e: string) => {
-    console.log(e);
-}
+
 const UseRoute = useRoute()
+const UseRouter = useRouter()
+const tabChange = (e: string) => {
+    UseRouter.push(e)
+}
 
 const GetDefaultValue = () => {
-    const nowTab = TabBarConfig.filter((i) => i.path === UseRoute.matched[0].path)
-    return nowTab[0].name
+    const nowTab = TabBarConfig.filter((i) => i.path === UseRoute.matched[UseRoute.matched.length - 1].path)
+    return nowTab[0].path
 }
-GetDefaultValue()
+const nowTab = ref(GetDefaultValue())
 </script>
 
 <style lang="scss" scoped>
@@ -47,13 +37,14 @@ GetDefaultValue()
     flex-direction: row;
     justify-content: space-between;
     height: 40px;
+    border-bottom: solid 1px #ccc;
 
     &_logo {
         line-height: 40px;
         min-width: 200px;
 
         a {
-            color: #ccc;
+            color: #8f8888;
 
             span {
                 font-weight: 700;
