@@ -1,12 +1,14 @@
 <template>
-    <n-config-provider :theme="Theme">
-        <n-layout style="height: 100vh;">
-            <span class="changeTheme" @click="changeColor">
-                {{ text }}
-            </sPan>
-            <router-view></router-view>
-        </n-layout>
-    </n-config-provider>
+    <n-loading-bar-provider>
+        <n-config-provider :theme="Theme">
+            <n-layout style="height: 100vh;">
+                <span class="changeTheme" @click="changeColor">
+                    {{ text }}
+                </sPan>
+                <router-view></router-view>
+            </n-layout>
+        </n-config-provider>
+    </n-loading-bar-provider>
 </template>
 
 <script lang="ts" setup>

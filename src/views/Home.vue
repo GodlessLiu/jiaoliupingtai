@@ -3,7 +3,6 @@
         <TabBar></TabBar>
         <RouterView class="main"></RouterView>
         <Footer>
-
         </Footer>
     </div>
 </template>
@@ -11,6 +10,7 @@
 <script lang="ts" setup>
 import TabBar from '../components/TabBar.vue';
 import Footer from '../components/Footer.vue'
+
 </script>
 
 <style lang="scss" scoped>
